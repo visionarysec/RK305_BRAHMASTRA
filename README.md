@@ -1,4 +1,4 @@
-# MALHUNT
+# MALICE HUNTER
 
 ![malice_hunter](https://raw.githubusercontent.com/visionarysec/RK305_BRAHMASTRA/master/Malice_Hunter.png?token=AK2HFTHILVJL3VFYH7CHYWK7FYMMY)
 
