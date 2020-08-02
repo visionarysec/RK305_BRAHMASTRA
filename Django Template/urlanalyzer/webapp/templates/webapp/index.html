@@ -1,0 +1,135 @@
+{% extends "webapp/layout.html" %}
+{% load static %}            
+{% block content %}
+		<header class="header site-header">
+			<div class="container">
+				<nav class="navbar navbar-default yamm">
+				    <div class="container-fluid">
+				        <div class="navbar-header">
+				            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				                <span class="sr-only">Toggle navigation</span>
+				                <span class="icon-bar"></span>
+				                <span class="icon-bar"></span>
+				                <span class="icon-bar"></span>
+				            </button>
+							<!-- <a class="navbar-brand" href="index.html"></a> -->
+				        </div>
+				        <div id="navbar" class="navbar-collapse collapse">
+				            <ul class="nav navbar-nav navbar-right">
+				                
+				                <li><a href="{% url 'analyze' %}">Analyze</a></li>
+								<li><a href="{% url 'investigate' %}">Investigate</a></li>
+								<li><a href="{% url 'about' %}">What is Brahmastra?</a></li>
+				                <li><a href="{% url 'contact' %}">Contact</a></li>
+                                <li class="lastlink hidden-xs hidden-sm"><a class="btn btn-primary" href="{% url 'analyze' %}"><i class="glyphicon glyphicon-search"></i> free url analysis</a></li>
+                            </ul>
+				        </div><!--/.nav-collapse -->
+				    </div><!--/.container-fluid -->
+				</nav><!-- end nav -->
+			</div><!-- end container -->
+		</header><!-- end header -->
+
+		<section class="section transheader homepage parallax" data-stellar-background-ratio="0.5" style="background-image:url('{% static "webapp/upload/bg_04.jpg" %}');">
+			<div class="container">
+				<div class="row">	
+					<div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
+						<h2>Let's Analysis Your Url/Link</h2>
+						<p class="lead">Use our web portal according to your need</p>
+						<form class="calculateform">
+						    <div class="item-box">
+						        <div class="item-top form-inline">
+						            <div class="form-group">
+						                <div class="input-group2">
+						                    <span class="input-addon">
+												<i class="fa fa-link"></i>
+											</span>
+						                    <input type="url" class="form-control" id="urladres" name="url" placeholder="Add your url">
+						                </div>
+						            </div>
+						            <input type="submit" name="send" value="Analyze" class="btn btn-default" />
+						        </div>
+						    </div>
+						</form>
+					</div><!-- end col -->
+				</div><!-- end row -->
+			</div><!-- end container -->
+		</section><!-- end section -->
+
+		
+
+		<section class="section overfree">
+			<div class="icon-center"><i class="fa fa-anchor"></i></div>
+			<div class="container">
+				<div class="section-title text-center">
+					<small>Welcome to our platform</small>
+					<h3>Top Reasons to use Us</h3>
+					<hr>
+					<p class="lead"> We are best in what we do!  <br> Try using our app</p>
+				</div><!-- end section-title -->
+
+				<div class="row service-list text-center">
+					<div class="col-md-4 col-sm-12 col-xs-12 first">
+						<div class="service-wrapper wow fadeIn">	
+							<i class="flaticon-competition"></i>
+							<div class="service-details">
+								<h4><a href="service-01.html" title="">What We Do</a></h4>
+								<p>Analyze malicious urls and resolve addresses.</p>
+								<a href="#!" class="readmore">View Details</a>
+							</div>
+						</div><!-- end service-wrapper -->
+					</div><!-- end col -->
+
+					<div class="col-md-4 col-sm-12 col-xs-12">
+						<div class="service-wrapper wow fadeIn">	
+							<i class="flaticon-content"></i>
+							<div class="service-details">
+								<h4><a href="service-02.html" title="">Who We Are</a></h4>
+								<p>Brahmastra</p>
+								<a href="#!" class="readmore">View Details</a>
+							</div>
+						</div><!-- end service-wrapper -->
+					</div><!-- end col -->
+
+					<div class="col-md-4 col-sm-12 col-xs-12 last">
+						<div class="service-wrapper wow fadeIn">	
+							<i class="flaticon-html"></i>
+							<div class="service-details">
+								<h4><a href="service-02.html" title="">Our Mission</a></h4>
+								<p>To make web search safer.</p>
+								<a href="#!" class="readmore">View Details</a>
+							</div>
+						</div><!-- end service-wrapper -->
+					</div><!-- end col -->
+				</div><!-- end row -->
+
+				<hr class="invis2">
+
+				<div class="row">
+					<div class="col-md-4">
+                        <div class="milestone-counter c1">
+                            <img src="{% static 'webapp/images/icon_07.png' %}" alt="" class="alignleft">
+                            <h3 class="stat-count">2901</h3>
+                            <p>Happy Customers</p>
+                        </div>
+                    </div>
+
+					<div class="col-md-4">
+                        <div class="milestone-counter c2">
+                            <img src="{% static 'webapp/images/icon_08.png' %}" alt="" class="alignleft">
+                            <h3 class="stat-count">304</h3>
+                            <p>Online Strategy</p>
+                        </div>
+                    </div>
+
+					<div class="col-md-4">
+                        <div class="milestone-counter c3">
+                            <img src="{% static 'webapp/images/icon_09.png' %}" alt="" class="alignleft">
+                            <h3 class="stat-count">890</h3>
+                            <p>Great Results</p>
+                        </div>
+                    </div>
+                </div>
+			</div><!-- end container -->
+		</section><!-- end section -->
+		
+{% endblock content %}
