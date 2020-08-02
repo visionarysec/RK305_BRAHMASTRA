@@ -3,7 +3,7 @@
     "port" : 5000,
     "malice_hunter_api": 
         {
-            "virustotal_api" : "2cf00d6ee87a4399367c8bc0689f20617cca583746cf5a48d49115e489ded469",
+            "virustotal_api" : "api-key",
             "app1_api" : "api1-key",
             "app2_api" : "api2_key",
             "app3_api" : "api3_key"
