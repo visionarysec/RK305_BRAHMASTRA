@@ -6,6 +6,8 @@ import dns.resolver
 import dns 
 import censys.certificates
 import censys.ipv4
+import ipinfo, pprint
+
 
 
 def investigate(domain, vt_api, api_id, api_secret):
@@ -21,6 +23,7 @@ def investigate(domain, vt_api, api_id, api_secret):
     
     result_A = dns.resolver.query(domain, 'A')
     for ipadd in result_A:
+        ip = str(ipadd)
         print('[+] A RECORDS :', ipadd)
     result_TXT = dns.resolver.query(domain, 'TXT')
     print('[+] TXT : ', result_TXT.qname)
@@ -31,6 +34,12 @@ def investigate(domain, vt_api, api_id, api_secret):
         print(dnsres)
     for i in response.json()['detected_urls']:
         print("RELATED URL : {} POSITIVES {}".format(i['url'], i['positives']))
+
+    print('[+] Finding Geo-location of the Domain:')
+    handler = ipinfo.getHandler(access_token='b5239b01d8abc5')
+    print('\n')
+    details = handler.getDetails(ip)
+    pprint.pprint(details.all)
 
 def main():
 
