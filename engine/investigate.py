@@ -23,10 +23,12 @@ def investigate(domain, vt_api, api_id, api_secret):
     for ipadd in result_A:
         print('[+] A RECORDS :', ipadd)
     result_TXT = dns.resolver.query(domain, 'TXT')
-    print('[+] TXT : ', result_TXT)
+    print('[+] TXT : ', result_TXT.qname)
     url = 'https://www.virustotal.com/vtapi/v2/domain/report'
     params = {'apikey':vt_api,'domain':domain}
     response = requests.get(url, params=params)
+    for dnsres in response.json()['dns_records']:
+        print(dnsres)
     for i in response.json()['detected_urls']:
         print("RELATED URL : {} POSITIVES {}".format(i['url'], i['positives']))
 
