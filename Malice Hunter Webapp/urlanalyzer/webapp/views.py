@@ -51,6 +51,11 @@ def contact(request):
     return render(request, 'webapp/page-contact.html',{'title':'Contact'})
 
 
-def newFeature(request):
+def blank(request):
     return render(request, 'webapp/blank.html',{'title':'New Feature'})
 
+def reports(request):
+    return render(request, 'webapp/blank.html',{'title':'Reports'})
+
+def osint(request):
+    return render(request, 'webapp/blank.html',{'title':'OSINT'})
