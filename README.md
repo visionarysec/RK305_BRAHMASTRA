@@ -9,9 +9,7 @@
 * ### Prerequisite :
 
 ## Requirements
-  - Django v >=2.1, Python v >=3
-  - Sqlite 3
-  - Python 3.6
+  - Django v >=2.1, Python v >=3.6
 
 # Procedure
 Clone this repository and then
