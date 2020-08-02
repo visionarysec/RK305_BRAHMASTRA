@@ -3,6 +3,18 @@ import sys, os
 import validators
 import argparse, json
 
+def idn_detect(dom_url):
+    print('Checking The Cyrelic IDN Homograph Attack')
+    bad_chars = ['\u0430', '\u03F2', '\u0435', '\u043E', '\u0440', '\u0455', '\u0501', '\u051B', '\u051D']
+    result = [bad_chars[i] for i in range(len(bad_chars)) if bad_chars[i] in dom_url]
+    if result:
+        msg = '\n[*] Evil URL detected: {}'.format(dom_url)
+        msg += '\n[*] Evil characters used: {}'.format(result)
+    else:
+        msg = '\n[*] Evil URL NOT detected: {}'.format(dom_url)
+
+    print(msg)
+
 
 def vt_url_submit(dom_url, api_key):
 
@@ -11,8 +23,10 @@ def vt_url_submit(dom_url, api_key):
     params = {'apikey': api_key, 'resource':dom_url}
     response = requests.get(url, params=params)
     print(response.json())
-    domain_name = dom_url.split("/")[2]
-    vt_dom_analyze(domain_name, api_key)
+    #domain_name = dom_url.split("/")[2]
+    #vt_dom_analyze(domain_name, api_key)
+
+    idn_detect(dom_url)
 
     #iter = (response.json()['scans'].keys())
     #for key in iter:
@@ -20,11 +34,11 @@ def vt_url_submit(dom_url, api_key):
 
 
 
-def vt_dom_analyze(dom_url, api_key):
-    url = 'https://www.virustotal.com/vtapi/v2/domain/report'
-    params = {'apikey':api_key,'domain':dom_url}
-    response = requests.get(url, params=params)
-    print(response.json())
+#def vt_dom_analyze(dom_url, api_key):
+#    url = 'https://www.virustotal.com/vtapi/v2/domain/report'
+#    params = {'apikey':api_key,'domain':dom_url}
+#    response = requests.get(url, params=params)
+#    print(response.json())
     
 
 
