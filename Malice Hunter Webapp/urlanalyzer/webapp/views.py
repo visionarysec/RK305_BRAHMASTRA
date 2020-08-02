@@ -17,7 +17,7 @@ def analyze(request):
 
 import json
 
-def investigate(request):
+def dashboard_analyze(request):
     if request.method == 'POST':
         url = request.POST.get('url')
         # print(url)
@@ -27,6 +27,8 @@ def investigate(request):
         # print(results)
         for k,v in results['scans'].items() :
             print(k,v)
+    else:
+        return render(request, 'webapp/analyze.html',{'title':'Analyze'}) 
     # data = dict(sorted(results['scans'],key=results['scans']['detected']))
     data = results['scans']
     pos = dict()
@@ -40,7 +42,40 @@ def investigate(request):
     
     c1 = len(neg)
     c2 = len(pos)
-    return render(request, 'webapp/dashboard-investigate.html',{'title':'Investigate','results': data,'pos': pos,'neg': neg,'threats': c1,'safe': c2})
+    return render(request, 'webapp/dashboard-analyze.html',{'title':'Analyze','results': data,'pos': pos,'neg': neg,'threats': c1,'safe': c2, 'targetUrl': url})
+
+def investigate(request):
+    results = dict()
+    if request.method == 'POST':
+        url = request.POST.get('url')
+        # print(url)
+        results = url_detect.url_detect(url)
+        print('Results inside view : ')
+        print('type :',type(results))
+        # print(results)
+        for k,v in results['scans'].items() :
+            print(k,v)
+
+        data = results['scans']
+        pos = dict()
+        neg = dict()
+
+        for k,v in data.items():
+            if v['detected'] == True:
+                neg[k] = v
+            else:
+                pos[k] = v
+        
+        c1 = len(neg)
+        c2 = len(pos)
+        return render(request, 'webapp/dashboard-investigate.html',{'title':'Investigate','results': data,'pos': pos,'neg': neg,'threats': c1,'safe': c2, 'targetUrl': url})
+    
+    else:
+        return render(request, 'webapp/investigate.html',{'title':'Investigate'}) 
+        # data = dict(sorted(results['scans'],key=results['scans']['detected']))
+
+
+    
 
 
 def about(request):
@@ -53,4 +88,8 @@ def contact(request):
 
 def newFeature(request):
     return render(request, 'webapp/blank.html',{'title':'New Feature'})
+
+
+
+    
 

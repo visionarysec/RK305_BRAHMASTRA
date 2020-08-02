@@ -3,24 +3,55 @@
 {% block investigate-content %}
 
 
-<!-- Begin Page Content -->
-<div class="col-xl-12 col-md-12 mb-4">
+ <!-- Page Heading -->
+ <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+  </div>
 
-    <!-- Page Heading -->
+  <!-- Content Row -->
+  
 
-    <h1 class="h3 text-gray-800">Professional <strong>Url Decompression and Investigation</strong></h1>
-    <p>These are the list of services we offer including, url resolution and maliciousness detection service.</p>
+    <!-- SAMPLE -->
 
     
-              
-    <!-- NEW -->
+
+    <!--=================================================================-->
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-12 col-md-12 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+                <!-- MAIN ANALYZE FEATURE-->
+              <!-- Topbar Search -->
+                <form class="d-none d-sm-inline-block form-inline mr-auto col-xl-12 my-2 my-md-0 mw-100 navbar-search" method="POST" action="{% url 'investigate' %}">
+                  {% csrf_token %}
+                  <div class="input-group">
+                    <input type="url" class="form-control bg-light border-0 small" id="urladres" name="url" placeholder="Add your url Here" aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button action="{% url 'investigate' %}" method="post" class="btn btn-primary" type="submit" name="send" value="Analyze">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-user-secret fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 <div class="row">
-    <!-- Pie Chart -->
-<div class="col-xl-6 col-lg-6">
+  <div class="col-xl-8 col-lg-8">
     <div class="card shadow mb-4">
       <!-- Card Header - Dropdown -->
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h2 class="m-2 font-weight-bold text-primary">Maliciousness Level</h2>
+        <h2 class="m-2 font-weight-bold text-primary">Geo-location</h2>
         <div class="dropdown no-arrow">
           <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -34,126 +65,97 @@
           </div>
         </div>
       </div>
-      <!-- Card Body -->
-      <div class="card-body">
-        <div class="chart-pie pt-4 pb-2">
-          <canvas id="myPieChartNew"></canvas>
-        </div>
-        <div class="mt-4 text-center small">
-          <span class="mr-4">
-            <i class="fas fa-circle text-danger"></i> Threats
-          </span>
-          <span class="mr-4">
-            <i class="fas fa-circle text-success"></i> Safe
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
 
+  <nav>
+    <ul class="nav nav-pills center-pills" role="tablist" id="myTab" style="visibility: hidden">
+        <li><a data-toggle="pill" href="#sectionA"  style="visibility: hidden">Section A</a></li>
+      
+    </ul>
+</nav>
 
-  <!---SEO SCORE -->
-<div class="col-xl-5 col-lg-5 h-100">
-    <div class="card shadow mb-6">
-  <div class="seo-score">
-    <div class="card-header">
-    <div class="website-screen">
-      <h2>Analyzed Results</h2>
-    </div><!-- end website-screen -->
-    
-    <div class="circle-detail">
-      <div class="progress">
-      <div class="progress-bar progress-bar-striped active" aria-valuenow="{{threats}}" aria-valuemin="0" aria-valuemax="100" style="width:{{threats}}%">
-            <span>{{threats}}</span>
-          </div>
-      </div>
-    </div><!-- end circle -->
-    <br>
-    
-    <div class="seo-details">
-      <div class="table-responsive-xl">
-      <table class="table table-bordered table-hover">
-        <tbody>
-          <tr class="row">
-            <td class="first-col col-md-4 good">Good</td>
-            <td class="col-md-8">{{ safe }}/79</td>
-          </tr>
-          <tr class="row">
-            <td class="first-col col-md-4 bad">Bad</td>
-            <td class="col-md-8">{{ threats }}/79</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-      <a href="#" class="btn btn-primary btn-block btn-lg">Analyzed Score</a>
-    </div>
-  </div><!-- end score -->
-  </div>
+<div class="container">
+
+    <!--<div id="map"></div>-->
+    <div class="card-body">
+    <section>
+        <div class="tab-content" style="tab">
+            <div id="sectionA" class="tab-pane fade">
+                <H2></H2>
+                <!-- the map will appear here -->
+                <div id="map"></div>
+
+            </div>
+        
+        </div>
+    </section>
   </div>
 </div>
-  
-  <!--===========================-->
+    
+    </div>
+    <!-- END OF CARD SHADOW-->
+  </div>
+  <!-- END OF COL-->
 </div>
-              <!-- DataTables Example -->
-    <div class="card shadow mb-8">
-        <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Analysed Results</h6>
-        </div>
-        <div class="card-body">
-          <div class="table-responsive-xl">
-            <table class="table table-bordered table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                      <tr>
-                        <th><i class="fa fa-search"></i>Antiviruses</th>
-                        <th>Analysis Details</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        {% if neg %}
-                        {% for k,v in neg.items %}	
-                    <tr>
-                        {% if False in v.values %}
-                        <td class="table-success">{{k}}</td>
-                        {% else %}
-                        <td class="table-danger">{{k}}</td>
-                        {% endif %}
-                    <td class="col-md-3"   >
-                        {% for name,result in v.items %}
-                        <ul>
-                        <li><b>{{name}}</b> : {{result}}</li>
-                        </ul>
-                        {% endfor %}
-                    </td>
-                        
-                    </tr>
-                    {% endfor %}
-                    {% endif %}
+<!-- END OF ROW -->
 
-                    {% for k,v in pos.items %}	
-                    <tr>
-                        {% if False in v.values %}
-                        <td class="table-success">{{k}}</td>
-                        
-                        {% endif %}
-                    <td class="col-md-3">
-                        {% for name,result in v.items %}
-                        <ul>
-                        <li><b>{{name}}</b> : {{result}}</li>
-                        </ul>
-                        {% endfor %}
-                    </td>
-                    </tr>
-                    {% endfor %}
+<!-- DataTables Example -->
+<div class="card shadow mb-8">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Analysed Results</h6>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive-xl">
+      <table class="table table-bordered table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th><i class="fa fa-search"></i>Antiviruses</th>
+                  <th>Analysis Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {% if neg %}
+                  {% for k,v in neg.items %}	
+              <tr>
+                  {% if False in v.values %}
+                  <td class="table-success">{{k}}</td>
+                  {% else %}
+                  <td class="table-danger">{{k}}</td>
+                  {% endif %}
+              <td class="col-md-3"   >
+                  {% for name,result in v.items %}
+                  <ul>
+                  <li><b>{{name}}</b> : {{result}}</li>
+                  </ul>
+                  {% endfor %}
+              </td>
+                  
+              </tr>
+              {% endfor %}
+              {% endif %}
 
-                      
-                    </tbody>
-                  </table>
-                    </div>
-                </div><!-- end details -->
-            </div><!-- end col -->  
+              {% for k,v in pos.items %}	
+              <tr>
+                  {% if False in v.values %}
+                  <td class="table-success">{{k}}</td>
+                  
+                  {% endif %}
+              <td class="col-md-3">
+                  {% for name,result in v.items %}
+                  <ul>
+                  <li><b>{{name}}</b> : {{result}}</li>
+                  </ul>
+                  {% endfor %}
+              </td>
+              </tr>
+              {% endfor %}
 
-              
-        </div>
-        <!-- /.container-fluid -->
+                
+              </tbody>
+            </table>
+              </div>
+          </div><!-- end details -->
+      </div><!-- end col --> 
+
+
 
 {% endblock investigate-content %}

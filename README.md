@@ -14,12 +14,13 @@
 # Procedure
 Clone this repository and then
 
-### First install a virtual environment to test this, using command:
+### First install a all the requirements globally given below, using command:
 
 ```sh 
-    $ pip install pipenv 
-    $ pipenv shell
-    $ pipenv sync
+    $ pip install django 
+    $ pip install unshortenit 
+    $ pip install requests
+    $ pip install praw
 ```
 
 

@@ -1,0 +1,239 @@
+{% extends "webapp/layout.html" %}
+{% load static %}         
+{% block content %}      
+
+		<header class="header site-header">
+			<div class="container">
+				<nav class="navbar navbar-default yamm">
+				    <div class="container-fluid">
+				        <div class="navbar-header">
+				            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				                <span class="sr-only">Toggle navigation</span>
+				                <span class="icon-bar"></span>
+				                <span class="icon-bar"></span>
+				                <span class="icon-bar"></span>
+				            </button>
+							<!-- <a class="navbar-brand" href="index.html"></a> -->
+				        </div>
+				        <div id="navbar" class="navbar-collapse collapse">
+				            <ul class="nav navbar-nav navbar-right">
+				                
+				                <li><a href="{% url 'analyze' %}">Analyze</a></li>
+								<li class="active"><a href="{% url 'investigate' %}">Investigate</a></li>
+								<li><a href="{% url 'about' %}">What is Brahmastra?</a></li>
+				                <li><a href="{% url 'contact' %}">Contact</a></li>
+                                <li class="lastlink hidden-xs hidden-sm"><a class="btn btn-primary" href="{% url 'analyze' %}"><i class="glyphicon glyphicon-search"></i> free url analysis</a></li>
+                            </ul>
+				        </div><!--/.nav-collapse -->
+				    </div><!--/.container-fluid -->
+				</nav><!-- end nav -->
+			</div><!-- end container -->
+		</header><!-- end header -->
+
+		<section class="section transheader customtitle">
+			<div class="container">
+				
+				<div class="row">	
+					<div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
+						<h2>Professional <strong>Url Decompression and Investigation</strong></h2>
+						<p class="lead">These are the list of services we offer including, <br>url resolution and maliciousness detection service.</p>
+					</div><!-- end col -->
+				</div><!-- end row -->
+			</div><!-- end container -->
+		</section><!-- end section -->
+
+		<section class="section overfree">
+			<div class="icon-center"><i class="fa fa-bar-chart"></i></div>
+			<div class="container">
+				<div class="center-pricing">
+				  	<!-- <ul class="nav nav-tabs" role="tablist">
+					    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Montlhy</a></li>
+					    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Yearly</a></li>
+					  </ul> -->
+					  <div class="row">
+						<!-- Donut Chart -->
+						<div class="col-xl-12 col-lg-12">
+						   <div class="card shadow mb-4">
+							 <!-- Card Header - Dropdown -->
+							 <div class="card-header py-3">
+							   <h2 class="m-2 font-weight-bold text-primary">Maliciousness Chart</h2>
+							 </div>
+							 <!-- Card Body -->
+							 <div class="card-body">
+							   <div class="chart-pie pt-6">
+								 <canvas id="myPieChartNew"></canvas>
+							   </div>
+							   <hr>
+							   <!-- Styling for the donut chart can be found in the <code>/js/demo/chart-pie-demo.js</code> file. -->
+							 </div>
+						   </div>
+						 </div>
+					   </div>
+				   <!--=============================================================================================================-->
+					  <div class="col-md-8">
+						<div class="seo-details">
+						  <table class="table">
+							<thead>
+							  <tr class="row">
+								<th class="col-md-4"><i class="fa fa-search"></i>Antiviruses</th>
+								<th class="col-md-12">Analysis Details</th>
+							  </tr>
+							</thead>
+							<tbody>
+								{% if neg %}
+								{% for k,v in neg.items %}	
+							<tr class="row">
+								{% if False in v.values %}
+								<td class="first-col col-md-4 good">{{k}}</td>
+								{% else %}
+								<td class="first-col col-md-4 bad">{{k}}</td>
+								{% endif %}
+							<td class="col-md-12">
+								{% for name,result in v.items %}
+								<ul>
+								<li><b>{{name}}</b> : {{result}}</li>
+								</ul>
+								{% endfor %}
+							</td>
+								
+							</tr>
+							{% endfor %}
+							{% endif %}
+
+							{% for k,v in pos.items %}	
+							<tr class="row">
+								{% if False in v.values %}
+								<td class="first-col col-md-4 good">{{k}}</td>
+								
+								{% endif %}
+							<td class="col-md-12">
+								{% for name,result in v.items %}
+								<ul>
+								<li><b>{{name}}</b> : {{result}}</li>
+								</ul>
+								{% endfor %}
+							</td>
+							</tr>
+							{% endfor %}
+
+							   <tr class="row">
+								<td class="first-col col-md-4 good">Character encoding</td>
+								<td class="col-md-8">Perfect! Your character encoding supports all languages</td>
+							</tr>
+							   <tr class="row">
+								<td class="first-col col-md-4 good">Site Title</td>
+								<td class="col-md-8">Fantastic! Title tag is fully compatible with SEO</td>
+							</tr>
+							   <tr class="row">
+								<td class="first-col col-md-4 good">Site Description</td>
+								<td class="col-md-8">Fantastic! Site description is fully compatible with SEO</td>
+							</tr>
+							   <tr class="row">
+								<td class="first-col col-md-4 good">Canonical</td>
+								<td class="col-md-8">Perfect! The "Canonical" tags on your site are mukvut and url is structured correctly</td>
+							</tr>
+							   <tr class="row">
+								<td class="first-col col-md-4 good">Favicon</td>
+								<td class="col-md-8">Awesome! Your site provide a favicon</td>
+							</tr>
+							   <tr class="row">
+								<td class="first-col col-md-4 good">H1 Heading Elements</td>
+								<td class="col-md-8">
+									Good! There is (1) H1 tag on your web site.
+									<ul>
+										<li>A real time search engine optimization</li>
+									</ul>
+								</td>
+							</tr>
+							   <tr class="row">
+								<td class="first-col col-md-4 good">H2 Heading Elements</td>
+								<td class="col-md-8">
+									Good! There is (4) H2 tag on your web site.
+									<ul>
+										<li>Cras nec nisi quis ipsum bibendum tristique.</li>
+										<li>Fusce quis nisi facilisis congue eget tempus purus.</li>
+										<li>Aenean sit amet ligula vel nisl dictum posuere.</li>
+										<li>In euismod ipsum quis eros gravida rutrum.</li>
+									</ul>
+								</td>
+							</tr>
+							   <tr class="row">
+								<td class="first-col col-md-4 bad">H3 Heading Elements</td>
+								<td class="col-md-8">Sorry! There is (12) H3 tag found on your web site. Please add maximum (6) H3 heading tags.</td>
+							</tr>
+							   <tr class="row">
+								<td class="first-col col-md-4 bad">H4 Heading Elements</td>
+								<td class="col-md-8">Sorry! H4 tag not found on your web site.</td>
+							</tr>
+							   <tr class="row">
+								<td class="first-col col-md-4 good">Iframe</td>
+								<td class="col-md-8">Fantastic! No iframe tag on your site</td>
+							</tr>
+							   <tr class="row">
+								<td class="first-col col-md-4 good">Embed / Flash</td>
+								<td class="col-md-8">Fantastic! No embed or flash element on your site</td>
+							</tr>
+							   <tr class="row">
+								<td class="first-col col-md-4 good">Sitemap (XML)</td>
+								<td class="col-md-8">
+									Awesome! There is sitemap at your web site
+									<ul>
+										<li>yoursite.com/sitemap.xml</li>
+									</ul>
+								</td>
+							</tr>
+							   <tr class="row">
+								<td class="first-col col-md-4 good">Robots.txt</td>
+								<td class="col-md-8">
+									Awesome! There is robots.txt file at your web site.
+									<ul>
+										<li>yoursite.com/robots.txt</li>
+									</ul>
+								</td>
+							</tr>
+							   <tr class="row">
+								<td class="first-col col-md-4 bad">Links</td>
+								<td class="col-md-8">
+									Bad! There is 21 external links on your web site. For a great SEO score, you can add max 10 external links.
+									<ul>
+										<li>http://rpc.twingly.com</li>
+										<li>http://api.feedster.com/ping</li>
+										<li>http://api.moreover.com/RPC2</li>
+										<li>http://api.moreover.com/ping</li>
+										<li>http://www.blogdigger.com/RPC2</li>
+										<li>http://www.blogshares.com/rpc.php</li>
+										<li>http://www.blogsnow.com/ping</li>
+										<li>http://www.blogstreet.com/xrbin/xmlrpc.cgi</li>
+										<li>http://bulkfeeds.net/rpc</li>
+										<li>http://www.newsisfree.com/xmlrpctest.php</li>
+										<li>http://ping.blo.gs/</li>
+										<li>http://ping.feedburner.com</li>
+										<li>http://ping.syndic8.com/xmlrpc.php</li>
+										<li>http://ping.weblogalot.com/rpc.php</li>
+										<li>http://rpc.blogrolling.com/pinger/</li>
+										<li>http://rpc.technorati.com/rpc/ping</li>
+										<li>http://rpc.weblogs.com/RPC2</li>
+										<li>http://www.feedsubmitter.com</li>
+										<li>http://blo.gs/ping.php</li>
+										<li>http://www.pingerati.net</li>
+										<li>http://www.pingmyblog.com</li>
+										<li>http://geourl.org/ping</li>
+										<li>http://ipings.com</li>
+										<li>http://www.weblogalot.com/ping</li>
+									</ul>
+								</td>
+							</tr>
+							</tbody>
+						  </table>
+						</div><!-- end details -->
+					</div><!-- end col -->  
+
+			  		
+				</div><!-- end center-pricing -->
+			</div><!-- end container -->
+		</section><!-- end section -->
+		
+
+
+	
+		{% endblock content %}
