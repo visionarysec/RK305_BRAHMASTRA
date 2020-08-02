@@ -19,6 +19,7 @@ Clone this repository and then
 ```sh 
     $ pip install pipenv 
     $ pipenv shell
+    $ pipenv lock
     $ pipenv sync
 ```
 
@@ -29,5 +30,13 @@ Clone this repository and then
     $ python manage.py migrate
 ```
 
+*Note* - Make sure you have installed Djnago and required modules like requests or unshortenit in your virtual environment,before migrating.
+If not ,then:
+
+```sh
+    $ pip install django
+    $ pip install requests
+    $ pip install unshortenit
+```
 
 -  And you would be up and running at  http://localhost:8000/
