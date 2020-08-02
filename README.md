@@ -8,3 +8,28 @@
 
 * ### Prerequisite :
 
+## Requirements
+  - Django v >=2.1, Python v >=3
+  - Sqlite 3
+  - Python 3.6
+
+# Procedure
+Clone this repository and then
+
+### First install a virtual environment to test this, using command:
+
+```sh 
+    $ pip install pipenv 
+    $ pipenv shell
+    $ pipenv sync
+```
+
+
+### Just do migration for the app from project root.
+
+```sh    
+    $ python manage.py migrate
+```
+
+
+-  And you would be up and running at  http://localhost:8000/
