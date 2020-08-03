@@ -28,6 +28,7 @@ Clone this repository and then
 
 ```sh    
     $ python manage.py migrate
+    $ python manage.py runserver
 ```
 
 - And you would be up and running at  http://localhost:8000/
