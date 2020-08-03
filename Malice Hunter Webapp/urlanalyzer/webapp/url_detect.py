@@ -21,9 +21,11 @@ def url_decompress(url):
 	print("[+] Now we are in URL Decompression Engine")
 	r = UnshortenIt().unshorten(url)
 	print("[+] Found the Original URL : ", r)
+	'''
 	check_url(url)
 	
 def check_url(url):
+	'''
 	print('Checking The Cyrelic IDN Homograph Attack')
 	bad_chars = ['\u0430', '\u03F2', '\u0435', '\u043E', '\u0440', '\u0455', '\u0501', '\u051B', '\u051D']
 	result = [bad_chars[i] for i in range(len(bad_chars)) if bad_chars[i] in url]
@@ -34,9 +36,11 @@ def check_url(url):
 		msg = '\n[*] Evil URL NOT detected: {}'.format(url)
 
 	print(msg)
+	'''
 	url_detect(url)
 
 def url_detect(url_detect):
+	'''
 	RED = '\033[31m'
 	BLUE = "\033[34m"
 	GREEN = "\033[23m"
@@ -45,7 +49,7 @@ def url_detect(url_detect):
 	print(BLUE + "[+] Now we are in the URL Detection Engine" + ENDC)
 	scanurl = "https://www.virustotal.com/vtapi/v2/url/scan"
 	api_key = "10348d6a56143962c1646c73d805fa09be69469757b1b8e71c446b79356c43cc"
-	r_scan = requests.post(scanurl, data = {"apikey":api_key,"url":url_detect})
+	r_scan = requests.post(scanurl, data = {"apikey":api_key,"url":r})
 	json_scan_data = json.loads(r_scan.text)
 	resource = json_scan_data['scan_id']
 	reporturl = "https://www.virustotal.com/vtapi/v2/url/report"

@@ -1,0 +1,101 @@
+{% load static %}
+<html>
+<head>
+    
+    <style>
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+    width: 70%;
+    c
+    
+}
+th{
+     border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+  text-align: left;
+    background-color: black;
+  color: white;
+
+}
+        td {
+             border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+  text-align: left;
+    
+}
+</style>
+    
+    </head>
+<body>
+    
+</body>
+      <header>
+        <div class="logo" style="align-self: center">
+            <img src="smallLogo.png"height="35" width="35" style="float: left" />
+           
+
+        </div>
+           <div  style="float: left; font-size: 25px">
+          &nbsp;Analysis Report
+          </div>
+          <div style="float: right">
+          Date</div>
+        
+              </header>
+
+   
+    <div style="padding-top: 100px">
+    <p style="font-size: 15px; font-weight: bold">Below are the analyzed details of <i> {{targetUrl}}</i>  by respective Antiviruses.</p>
+
+            <table class="table table-bordered table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th><i class="fa fa-search"></i>Antiviruses</th>
+                        <th>Analysis Details</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% if neg %}
+                        {% for k,v in neg.items %}	
+                    <tr>
+                        {% if False in v.values %}
+                        <td class="table-success">{{k}}</td>
+                        {% else %}
+                        <td class="table-danger">{{k}}</td>
+                        {% endif %}
+                    <td class="col-md-3"   >
+                        {% for name,result in v.items %}
+                        <ul>
+                        <li><b>{{name}}</b> : {{result}}</li>
+                        </ul>
+                        {% endfor %}
+                    </td>
+                        
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+
+                    {% for k,v in pos.items %}	
+                    <tr>
+                        {% if False in v.values %}
+                        <td class="table-success">{{k}}</td>
+                        
+                        {% endif %}
+                    <td class="col-md-3">
+                        {% for name,result in v.items %}
+                        <ul>
+                        <li><b>{{name}}</b> : {{result}}</li>
+                        </ul>
+                        {% endfor %}
+                    </td>
+                    </tr>
+                    {% endfor %}
+
+                      
+                    </tbody>
+                  </table>
+    </div>
+</html>

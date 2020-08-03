@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "60451ce05f57bda0661e28969493d66b04aa1618ae3d317c70f56fc0e71c8fd5"
+            "sha256": "6d1450a363bbc8577cef78eff2c3791efdd04b01e85a6dd5360ccdb6dda8c58d"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "*"
+            "python_version": "3.6"
         },
         "sources": [
             {
@@ -95,6 +95,21 @@
             ],
             "version": "==4.5.2"
         },
+        "praw": {
+            "hashes": [
+                "sha256:6b93ad1e53385c68753203ec87f4d0053b2425b09fc8813847800a542efdfe6c",
+                "sha256:fb55e46203a771342da7cbe144fbcd8c61d825719ce1025bdd72112194a0228f"
+            ],
+            "index": "pypi",
+            "version": "==7.1.0"
+        },
+        "prawcore": {
+            "hashes": [
+                "sha256:4c372183f1926efe8914476864705fa84234a9ca158f32046962788d6129a518",
+                "sha256:cf71388d869becbcbdfd90258b19d2173c197a457f2dd0bef0566b6cfb9b95a1"
+            ],
+            "version": "==1.4.0"
+        },
         "pytz": {
             "hashes": [
                 "sha256:a494d53b6d39c3c6e44c3bec237336e14305e4f29bbf800b599253057fbb79ed",
@@ -110,6 +125,13 @@
             "index": "pypi",
             "version": "==2.24.0"
         },
+        "six": {
+            "hashes": [
+                "sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259",
+                "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"
+            ],
+            "version": "==1.15.0"
+        },
         "sqlparse": {
             "hashes": [
                 "sha256:022fb9c87b524d1f7862b3037e541f68597a730a8843245c349fc93e1643dc4e",
@@ -124,12 +146,26 @@
             "index": "pypi",
             "version": "==0.4.0"
         },
+        "update-checker": {
+            "hashes": [
+                "sha256:1ff5dc7aab340b4f7710bd6c69d08ff5a5351617cd4ba0eb8886ddb285e2104f",
+                "sha256:2def8db7f63bd45c7d19df5df570f3f3dfeb1a1f050869d7036529295db10e62"
+            ],
+            "version": "==0.17"
+        },
         "urllib3": {
             "hashes": [
                 "sha256:91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a",
                 "sha256:e7983572181f5e1522d9c98453462384ee92a0be7fac5f1413a1e35c56cc0461"
             ],
             "version": "==1.25.10"
+        },
+        "websocket-client": {
+            "hashes": [
+                "sha256:0fc45c961324d79c781bab301359d5a1b00b13ad1b10415a4780229ef71a5549",
+                "sha256:d735b91d6d1692a6a181f2a8c9e0238e5f6373356f561bb9dc4c7af36f452010"
+            ],
+            "version": "==0.57.0"
         }
     },
     "develop": {}

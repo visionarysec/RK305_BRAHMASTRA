@@ -1,0 +1,20 @@
+
+{
+    "server" : "127.0.0.1",
+    "port" : 5000,
+    "malice_hunter_api": 
+        {
+            "virustotal_api" : "2cf00d6ee87a4399367c8bc0689f20617cca583746cf5a48d49115e489ded469",
+            "CENSYS_API_ID" : "e10cac87-521d-4c7f-8be4-8ac6d0d9a439",
+            "CENSYS_API_SECRET" : "VLRb52H7blHz9SSB4x82mXejKXk37VFQ",
+            "app3_api" : "api3_key"
+        },
+    "osint_api": 
+        {
+            "FB_API" : "FB_API",
+            "REDDIT_API": "REDDIT_API",
+            "TWITTER_API": "TWITTER API"
+        }
+
+}
+

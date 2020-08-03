@@ -3,11 +3,10 @@
 {% block investigate-content %}
 
 
-
  <!-- Page Heading -->
  <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    <a href="{% url 'analysis_report' %}?url={{targetUrl}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
   </div>
 
   <!-- Content Row -->
@@ -53,7 +52,6 @@
       <!-- Card Header - Dropdown -->
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         <h2 class="m-2 font-weight-bold text-primary">Geo-location</h2>
-
         <div class="dropdown no-arrow">
           <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -67,7 +65,6 @@
           </div>
         </div>
       </div>
-
 
   <nav>
     <ul class="nav nav-pills center-pills" role="tablist" id="myTab" style="visibility: hidden">
@@ -104,55 +101,25 @@
 <!-- DataTables Example -->
 <div class="card shadow mb-8">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Analysed Results</h6>
+    <h6 class="m-0 font-weight-bold text-primary">Investigated Results</h6>
   </div>
   <div class="card-body">
     <div class="table-responsive-xl">
       <table class="table table-bordered table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th><i class="fa fa-search"></i>Antiviruses</th>
+                  <th><i class="fa fa-search"></i>Label</th>
                   <th>Analysis Details</th>
                 </tr>
               </thead>
               <tbody>
-                  {% if neg %}
-                  {% for k,v in neg.items %}	
-              <tr>
-                  {% if False in v.values %}
-                  <td class="table-success">{{k}}</td>
-                  {% else %}
-                  <td class="table-danger">{{k}}</td>
-                  {% endif %}
-              <td class="col-md-3"   >
-                  {% for name,result in v.items %}
-                  <ul>
-                  <li><b>{{name}}</b> : {{result}}</li>
-                  </ul>
-                  {% endfor %}
-              </td>
-                  
-              </tr>
-              {% endfor %}
-              {% endif %}
-
-              {% for k,v in pos.items %}	
-              <tr>
-                  {% if False in v.values %}
-                  <td class="table-success">{{k}}</td>
-                  
-                  {% endif %}
-              <td class="col-md-3">
-                  {% for name,result in v.items %}
-                  <ul>
-                  <li><b>{{name}}</b> : {{result}}</li>
-                  </ul>
-                  {% endfor %}
-              </td>
-              </tr>
-              {% endfor %}
-
                 
+                  {% for k,v in details.items %}
+                <tr>
+                  <td>{{k}}</td>
+                  <td>{{v}}</td>
+                </tr>
+                  {% endfor %}
               </tbody>
             </table>
               </div>
@@ -162,4 +129,3 @@
 
 
 {% endblock investigate-content %}
-

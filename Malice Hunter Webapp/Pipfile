@@ -9,6 +9,8 @@ verify_ssl = true
 django = "*"
 requests = "*"
 unshortenit = "*"
+praw = "*"
+xhtml2pdf = "*"
 
 [requires]
 python_version = "*"
