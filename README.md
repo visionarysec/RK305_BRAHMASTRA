@@ -2,11 +2,11 @@
 
 ![malice_hunter](https://raw.githubusercontent.com/visionarysec/RK305_BRAHMASTRA/master/Malice_Hunter.png?token=AK2HFTHILVJL3VFYH7CHYWK7FYMMY)
 
->This Project is the implementation of the Idea that was proposed by Bureau of Police Research and Development during the period of [SIH](https://sih.gov.in).
+> This Project is the implementation of the Idea that was proposed by Bureau of Police Research and Development during the period of [SIH](https://sih.gov.in).
 
 ## Installation Guide:
 
-* ### Prerequisite :
+- ### Prerequisite :
 
 ## Requirements
   - Django v >=2.1, Python v >=3.6
@@ -30,5 +30,4 @@ Clone this repository and then
     $ python manage.py migrate
 ```
 
-
--  And you would be up and running at  http://localhost:8000/
+- And you would be up and running at  http://localhost:8000/

@@ -29,6 +29,7 @@ def dashboard_analyze(request):
             print(k,v)
     else:
         return render(request, 'webapp/analyze.html',{'title':'Analyze'}) 
+
     # data = dict(sorted(results['scans'],key=results['scans']['detected']))
     data = results['scans']
     pos = dict()
@@ -75,9 +76,6 @@ def investigate(request):
         # data = dict(sorted(results['scans'],key=results['scans']['detected']))
 
 
-    
-
-
 def about(request):
     return render(request, 'webapp/page-about.html',{'title':'About'})
 
@@ -86,10 +84,11 @@ def contact(request):
     return render(request, 'webapp/page-contact.html',{'title':'Contact'})
 
 
-def newFeature(request):
+def blank(request):
     return render(request, 'webapp/blank.html',{'title':'New Feature'})
 
+def reports(request):
+    return render(request, 'webapp/blank.html',{'title':'Reports'})
 
-
-    
-
+def osint(request):
+    return render(request, 'webapp/blank.html',{'title':'OSINT'})
